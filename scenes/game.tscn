@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cimdrvyhwam85"]
+
+[ext_resource type="Script" uid="uid://bk0u5ph0ott15" path="res://scenes/game.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://bf1faee6yh1tc" path="res://scenes/level_1.tscn" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dmsn2t8s620xs" path="res://characters/player_cat.tscn" id="1_uwrxv"]
+
+[node name="GameLevel" type="Node2D" unique_id=2009586546]
+script = ExtResource("1_iywne")
+
+[node name="Levels" type="Node2D" parent="." unique_id=905354193]
+
+[node name="Level1" parent="Levels" unique_id=2085485383 instance=ExtResource("1_lbhrr")]
+
+[node name="PlayerCat" parent="." unique_id=2052814215 instance=ExtResource("1_uwrxv")]
+position = Vector2(488, 232)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCat" unique_id=2101368225]
+position = Vector2(8, -38)
+zoom = Vector2(3.335, 3.335)
+position_smoothing_enabled = true
+
+[connection signal="read_sign" from="Levels/Level1/Sign" to="." method="_on_sign_read_sign"]
+
+[editable path="Levels/Level1"]
