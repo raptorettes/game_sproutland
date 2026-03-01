@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bk0u5ph0ott15" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://bf1faee6yh1tc" path="res://scenes/level_1.tscn" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://dmsn2t8s620xs" path="res://characters/player_cat.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dlkf2frpbif8m" path="res://characters/cow.tscn" id="4_lbhrr"]
 
 [node name="GameLevel" type="Node2D" unique_id=2009586546]
 script = ExtResource("1_iywne")
@@ -12,12 +13,15 @@ script = ExtResource("1_iywne")
 [node name="Level1" parent="Levels" unique_id=2085485383 instance=ExtResource("1_lbhrr")]
 
 [node name="PlayerCat" parent="." unique_id=2052814215 instance=ExtResource("1_uwrxv")]
-position = Vector2(488, 232)
+position = Vector2(394, 231)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCat" unique_id=2101368225]
 position = Vector2(8, -38)
 zoom = Vector2(3.335, 3.335)
 position_smoothing_enabled = true
+
+[node name="Chicken" parent="." unique_id=811197053 instance=ExtResource("4_lbhrr")]
+position = Vector2(306, 257)
 
 [connection signal="read_sign" from="Levels/Level1/Sign" to="." method="_on_sign_read_sign"]
 
