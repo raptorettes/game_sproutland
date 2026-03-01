@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bk0u5ph0ott15" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://bf1faee6yh1tc" path="res://scenes/level_1.tscn" id="1_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://dmsn2t8s620xs" path="res://characters/player_cat.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://dlkf2frpbif8m" path="res://characters/cow.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dmsn2t8s620xs" path="res://scenes/player_cat.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dlkf2frpbif8m" path="res://scenes/chicken.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cw7avmdegu04x" path="res://scenes/NPCat.tscn" id="5_iywne"]
 
 [node name="GameLevel" type="Node2D" unique_id=2009586546]
 script = ExtResource("1_iywne")
@@ -22,6 +23,9 @@ position_smoothing_enabled = true
 
 [node name="Chicken" parent="." unique_id=811197053 instance=ExtResource("4_lbhrr")]
 position = Vector2(306, 257)
+
+[node name="CharacterBody2D" parent="." unique_id=2124421162 instance=ExtResource("5_iywne")]
+position = Vector2(321, 291)
 
 [connection signal="read_sign" from="Levels/Level1/Sign" to="." method="_on_sign_read_sign"]
 

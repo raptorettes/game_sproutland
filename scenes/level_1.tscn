@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctylmggfq2co5" path="res://sprites/Tilesets/Tilled_Dirt_Wide.png" id="2_15mv3"]
 [ext_resource type="Texture2D" uid="uid://ch3b48b8ykkp1" path="res://sprites/Tilesets/Hills.png" id="3_4nkto"]
 [ext_resource type="Texture2D" uid="uid://dbsc0lqg7y7jj" path="res://sprites/Tilesets/Water.png" id="3_e3sih"]
-[ext_resource type="PackedScene" uid="uid://c0gl8wujicpqh" path="res://characters/sign.tscn" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://c0gl8wujicpqh" path="res://scenes/sign.tscn" id="4_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://cmsjd1pm7wv0t" path="res://sprites/Objects/Basic Grass Biom things 1.png" id="5_fcfvj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nkto"]

@@ -1,0 +1,63 @@
+[gd_resource type="BehaviorTree" format=3 uid="uid://c0knnd7q3v5kv"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_xu0j3"]
+
+[sub_resource type="BBNode" id="BBNode_3a7nj"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_beppv"]
+animation_player = SubResource("BBNode_3a7nj")
+animation_name = &"idle_down"
+
+[sub_resource type="BTWait" id="BTWait_q5mjw"]
+duration = 2.0
+
+[sub_resource type="BBNode" id="BBNode_q5mjw"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_vk2hk"]
+animation_player = SubResource("BBNode_q5mjw")
+animation_name = &"walk_right"
+
+[sub_resource type="BTWait" id="BTWait_3a7nj"]
+duration = 3.0
+
+[sub_resource type="BTSequence" id="BTSequence_vk2hk"]
+children = [SubResource("BTPlayAnimation_beppv"), SubResource("BTWait_q5mjw"), SubResource("BTPlayAnimation_vk2hk"), SubResource("BTWait_3a7nj")]
+
+[sub_resource type="BTProbability" id="BTProbability_3a7nj"]
+children = [SubResource("BTSequence_vk2hk")]
+
+[sub_resource type="BBNode" id="BBNode_beppv"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_e50iq"]
+animation_player = SubResource("BBNode_beppv")
+animation_name = &"walk_left"
+
+[sub_resource type="BTWait" id="BTWait_beppv"]
+duration = 3.0
+
+[sub_resource type="BBNode" id="BBNode_vk2hk"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_ap3ry"]
+animation_player = SubResource("BBNode_vk2hk")
+animation_name = &"walk_down"
+
+[sub_resource type="BTWait" id="BTWait_vk2hk"]
+duration = 4.0
+
+[sub_resource type="BTSequence" id="BTSequence_ap3ry"]
+children = [SubResource("BTPlayAnimation_e50iq"), SubResource("BTWait_beppv"), SubResource("BTPlayAnimation_ap3ry"), SubResource("BTWait_vk2hk")]
+
+[sub_resource type="BTSelector" id="BTSelector_e50iq"]
+children = [SubResource("BTProbability_3a7nj"), SubResource("BTSequence_ap3ry")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_xu0j3")
+root_task = SubResource("BTSelector_e50iq")

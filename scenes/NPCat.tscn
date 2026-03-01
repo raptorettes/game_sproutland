@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://cw7avmdegu04x"]
+
+[ext_resource type="Script" uid="uid://c7odhre4ys6v7" path="res://scenes/np_cat.gd" id="1_fou25"]
+[ext_resource type="Texture2D" uid="uid://d30h6e3q58iid" path="res://sprites/Characters/Basic Charakter Spritesheet.png" id="1_xu0j3"]
+[ext_resource type="BehaviorTree" uid="uid://c0knnd7q3v5kv" path="res://ai/trees/npcat.tres" id="3_evlio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bpa1"]
+size = Vector2(10, 4)
+
+[sub_resource type="Animation" id="Animation_xkkob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6lxrr"]
+resource_name = "idle_down"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xu0j3"]
+resource_name = "idle_left"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_evlio"]
+resource_name = "idle_right"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_fou25"]
+resource_name = "idle_up"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0smox"]
+resource_name = "walk_down"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(2, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o5slo"]
+resource_name = "walk_left"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(2, 2), Vector2i(3, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_6unbh"]
+resource_name = "walk_right"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(2, 3), Vector2i(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_bn7d1"]
+resource_name = "walk_up"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(2, 1), Vector2i(3, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fuemk"]
+_data = {
+&"RESET": SubResource("Animation_xkkob"),
+&"idle_down": SubResource("Animation_6lxrr"),
+&"idle_left": SubResource("Animation_xu0j3"),
+&"idle_right": SubResource("Animation_evlio"),
+&"idle_up": SubResource("Animation_fou25"),
+&"walk_down": SubResource("Animation_0smox"),
+&"walk_left": SubResource("Animation_o5slo"),
+&"walk_right": SubResource("Animation_6unbh"),
+&"walk_up": SubResource("Animation_bn7d1")
+}
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_evlio"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2124421162]
+script = ExtResource("1_fou25")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=584189950]
+texture = ExtResource("1_xu0j3")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1470468397]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_5bpa1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=328432169]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_fuemk")
+
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=1942356258]
+behavior_tree = ExtResource("3_evlio")
+blackboard_plan = SubResource("BlackboardPlan_evlio")
